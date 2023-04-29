@@ -1,0 +1,44 @@
+{
+    "ignore": [
+        // same format as .gitignore
+        // "*.css"
+        // if files are ignored, build will create ./ignore-list.txt
+    ],
+    "minify": true,
+    "streams": {
+        "style.css": {
+            // "ignore": [], // ignore files from this stream
+            // "priority": [], // put these files at the top of this stream
+            "files": [
+                // dependencies
+                "https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css --ignore-build",
+                // entire folder
+                "../static/css/" // ,
+                // can do scss
+                // "../static/scss/style.scss"
+                // can also do specific files
+            ]
+        },
+        "script.js": {
+            // "ignore": [], // ignore files from this stream
+            // "priority": [], // put these files at the top of this stream
+            "files": [
+                // some dependencies
+                "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js --ignore-build",
+                "https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js --ignore-build",
+
+                // ts folders (have their own tsconfig.json)
+                "[ts]../static/js/classes/canvas",
+                "[ts]../static/js/classes/color",
+                "[ts]../static/js/classes/custom-bootstrap/src",
+
+                // all js files in these folders (no ts)
+                "../static/js/top",
+                "../static/js/bottom"
+
+                // specific files
+            ]
+        }
+    },
+    "buildDir": "../static/build/"
+}
